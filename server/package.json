@@ -1,0 +1,21 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Express server for serving json files",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "nodemon --inspect=0.0.0.0:9229 src/index.js"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "basic"
+  ],
+  "author": "Codrut Bradatan",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "express": "^4.16.4",
+    "nodemon": "^1.18.10"
+  }
+}
