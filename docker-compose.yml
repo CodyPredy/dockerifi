@@ -1,0 +1,23 @@
+version: "3.7"
+services:
+  client:
+    container_name: client
+    build:
+      context: ./client
+    ports:
+      - 3000:3000
+      - 35279:35729
+    command: npm start
+    volumes:
+      - ./client:/app
+
+  server:
+    container_name: server
+    build:
+      context: ./server
+    ports:
+      - 3001:3001
+      - 9229:9229
+    command: npm start
+    volumes:
+      - ./server:/app
