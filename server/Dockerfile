@@ -11,3 +11,4 @@ COPY . /app
 # PORT CONFIGURATION
 EXPOSE 3001
 
+CMD ["npm", "start"]
