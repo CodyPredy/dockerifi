@@ -6,8 +6,11 @@ services:
       context: ./client
     ports:
       - 3000:3000
-      - 35279:35729
-
+      - 35729:35729
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - './client/src:/app/src'
   server:
     container_name: server
     build:
@@ -15,3 +18,7 @@ services:
     ports:
       - 3001:3001
       - 9229:9229
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - './server/src:/app/src'
