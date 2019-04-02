@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import { http } from "../api/http";
 
 function Hello() {
   const [content, setData] = useState("");
 
   async function fetchData() {
-    const result = await axios("http://localhost:3001");
+    const result = await http.get("/api");
 
     setData(result.data.content);
   }
