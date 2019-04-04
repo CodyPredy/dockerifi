@@ -8,10 +8,10 @@ services:
       - 3000:3000
       - 35729:35729
     env_file:
-      - ./client/.env
+      - ./.env
     environment:
       - NODE_ENV=${NODE_ENV:-development}
-      - REACT_APP_SERVER_PORT=${REACT_APP_SERVER_PORT:-3001}
+      - REACT_APP_API_URL=${REACT_APP_API_URL:-http://localhost:3001}
     volumes:
       - "./client/src:/app/src"
   server:
