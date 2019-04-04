@@ -7,10 +7,13 @@ services:
     ports:
       - 3000:3000
       - 35729:35729
+    env_file:
+      - ./.env
     environment:
-      - NODE_ENV=development
+      - NODE_ENV=${NODE_ENV:-development}
+      - REACT_APP_API_URL=${REACT_APP_API_URL:-http://localhost:3001}
     volumes:
-      - './client/src:/app/src'
+      - "./client/src:/app/src"
   server:
     container_name: server
     build:
@@ -21,4 +24,4 @@ services:
     environment:
       - NODE_ENV=development
     volumes:
-      - './server/src:/app/src'
+      - "./server/src:/app/src"

@@ -1,8 +1,13 @@
 # dockerfing your app
 
-Dockerizing React and NodeJS Environment
+Dockerizing React and NodeJS Environment into two separate containers.
 
-# How to run it locally
+# Quick start
 
-1. npm install
-2. npm run start
+## Client
+
+Use [Client Readme](./client/README.md)
+
+## Server
+
+Use [Server Readme](./server/README.md)

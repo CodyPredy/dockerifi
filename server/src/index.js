@@ -14,7 +14,7 @@ server.use((req, res, next) => {
   next();
 });
 
-server.get("/", (req, res) => {
+server.get("/api", (req, res) => {
   fs.readFile("./src/api/response.json", (err, json) => {
     let obj = JSON.parse(json);
     res.json(obj);
