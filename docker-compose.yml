@@ -8,12 +8,12 @@ services:
       - 3000:3000
       - 35729:35729
     env_file:
-      - ./.env
+      - ./client/.env
     environment:
       - NODE_ENV=${NODE_ENV:-development}
       - REACT_APP_SERVER_PORT=${REACT_APP_SERVER_PORT:-3001}
     volumes:
-      - './client/src:/app/src'
+      - "./client/src:/app/src"
   server:
     container_name: server
     build:
@@ -24,4 +24,4 @@ services:
     environment:
       - NODE_ENV=development
     volumes:
-      - './server/src:/app/src'
+      - "./server/src:/app/src"
