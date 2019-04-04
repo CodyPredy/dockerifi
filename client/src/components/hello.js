@@ -10,6 +10,7 @@ function Hello() {
     setData(result.data.content);
   }
 
+  // TODO this throws a warning "Warning: An effect function must not return anything besides a function, which is used for clean-up."
   useEffect(async () => {
     fetchData();
   }, []);
