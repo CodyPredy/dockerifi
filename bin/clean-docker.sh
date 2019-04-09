@@ -1,5 +1,13 @@
 #!/bin/bash
 
+echo "This will remove all system containers, and remove all dangling images"
+read -n 1 -r -p "Are you sure you want to continue? [Yn]: " answer
+echo
+
+if [[ ! $answer =~ [Yy] ]]; then
+  exit
+fi
+
 running_containers=$(docker ps -a | wc -l)
 
 # Check if any containers are running
