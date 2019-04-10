@@ -1,5 +1,4 @@
 #!/bin/bash
-# TODO: Cleanup docker intermediate images
 
 docker-compose down
 docker-compose up --build --remove-orphans
