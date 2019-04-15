@@ -1,5 +1,5 @@
 const express = require("express");
-const fs = require("fs");
+const getRepos = require("./api/getRepos");
 const port = 3001;
 
 const server = express();
@@ -14,11 +14,9 @@ server.use((req, res, next) => {
   next();
 });
 
-server.get("/api", (req, res) => {
-  fs.readFile("./src/api/response.json", (err, json) => {
-    let obj = JSON.parse(json);
-    res.json(obj);
-  });
+server.get("/api/:name", async (req, res) => {
+  const response = await getRepos(req.params.name);
+  res.json(response);
 });
 
 server.listen(port, () => {
