@@ -3,15 +3,15 @@ import styled from "styled-components";
 
 import Panel from "./Panel";
 
-function PanelContainer({ content = [] }) {
-  return !content.length ? (
-    <NoContent>Repo man is not here</NoContent>
-  ) : (
+function List({ items = [] }) {
+  return items.length ? (
     <Container>
-      {content.map((panelProps, index) => (
-        <Panel key={`${panelProps.name}${index}`} {...panelProps} />
+      {items.map((item, index) => (
+        <Panel key={`${item.name}${index}`} {...item} />
       ))}
     </Container>
+  ) : (
+    <NoContent>Repo man is not here</NoContent>
   );
 }
 
@@ -26,4 +26,4 @@ const NoContent = styled.div`
   margin-top: 50px;
 `;
 
-export default PanelContainer;
+export default List;

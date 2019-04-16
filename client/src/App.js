@@ -1,14 +1,14 @@
 import React, { Component } from "react";
-import "./App.css";
 
-import RepoViews from "./views/RepoViews";
+import Repo from "./views/Repo";
+import "./App.css";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <RepoViews />
+          <Repo />
         </header>
       </div>
     );

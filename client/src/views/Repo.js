@@ -1,18 +1,19 @@
 import React, { useState } from "react";
-import { http } from "../api/http";
-
 import styled from "styled-components";
-import logo from "../logo.svg";
-import PanelContainer from "../components/PanelContainer";
 
-function RepoViews() {
-  const [content, setData] = useState([]);
+import { http } from "../api/http";
+import List from "../components/List";
+
+import logo from "../logo.svg";
+
+function Repo() {
+  const [items, setItems] = useState([]);
   const [author, setAuthor] = useState("");
   const [isLoading, setLoading] = useState(false);
 
   async function fetchData(author) {
     const result = await http.get(`/api/${author}`);
-    setData(result.data);
+    setItems(result.data);
     setLoading(false);
   }
 
@@ -32,10 +33,8 @@ function RepoViews() {
       <RepoInput>
         <input
           value={author}
-          onChange={e => {
-            setAuthor(e.target.value);
-          }}
-          onKeyPress={e => onAuthorSubmit(e)}
+          onChange={e => setAuthor(e.target.value)}
+          onKeyPress={onAuthorSubmit}
         />
         <button onClick={onRepoSubmit} disabled={!author}>
           GO
@@ -50,7 +49,7 @@ function RepoViews() {
       {isLoading ? (
         <img src={logo} className="App-logo" alt="logo" />
       ) : (
-        <PanelContainer content={content} />
+        <List items={items} />
       )}
     </div>
   );
@@ -81,4 +80,4 @@ const RepoInput = styled.div`
   }
 `;
 
-export default RepoViews;
+export default Repo;
