@@ -1,8 +1,9 @@
 const express = require("express");
-const fs = require("fs");
-const port = 3001;
+
+const getRepos = require("./api/getRepos");
 
 const server = express();
+const port = 3001;
 
 server.use((req, res, next) => {
   //TODO: Allow cross origin request for local dev environment only
@@ -14,11 +15,13 @@ server.use((req, res, next) => {
   next();
 });
 
-server.get("/api", (req, res) => {
-  fs.readFile("./src/api/response.json", (err, json) => {
-    let obj = JSON.parse(json);
-    res.json(obj);
-  });
+server.get("/api/:name", async (req, res) => {
+  try {
+    const response = await getRepos(req.params.name);
+    res.json(response);
+  } catch (error) {
+    res.sendStatus(501);
+  }
 });
 
 server.listen(port, () => {

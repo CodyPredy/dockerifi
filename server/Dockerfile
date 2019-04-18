@@ -9,5 +9,6 @@ RUN npm install --silent
 COPY . /app
 
 EXPOSE 3001
+EXPOSE 9229
 
 CMD ["npm", "start"]
