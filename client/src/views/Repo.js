@@ -12,6 +12,7 @@ function Repo() {
   const [isLoading, setLoading] = useState(false);
 
   async function fetchData(author) {
+    setLoading(true);
     const result = await http.get(`/api/${author}`);
     setItems(result.data);
     setLoading(false);
@@ -24,7 +25,6 @@ function Repo() {
   }
 
   function onRepoSubmit() {
-    setLoading(true);
     fetchData(author);
   }
 
