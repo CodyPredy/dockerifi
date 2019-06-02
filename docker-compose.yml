@@ -1,0 +1,24 @@
+version: "3.7"
+services:
+  client:
+    container_name: client
+    build:
+      context: ./client
+    ports:
+      - 3000:3000
+      - 35729:35729
+    env_file:
+      - ./.env
+    environment:
+      - REACT_APP_API_URL=${REACT_APP_API_URL:-http://localhost:3001}
+    volumes:
+      - "./client/src:/app/src"
+  server:
+    container_name: server
+    build:
+      context: ./server
+    ports:
+      - 3001:3001
+      - 9229:9229
+    volumes:
+      - "./server/src:/app/src"

@@ -32,7 +32,7 @@ fi
 
 ## AWS CLI
 # Login
-$(aws ecr get-login --no-include-email --region us-east-1)
+$(aws ecr get-login --no-include-email --region us-east-2)
 
 ## Client
 if [ -z $only_server ]; then
